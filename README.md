@@ -94,4 +94,17 @@ phone.local = "cc:cc:cc:cc:cc:cc"
 
 `arp-scan` requires root permissions to run, so you'll need to run `smh` with
 `sudo smh hostname` and put your config in `/root/.config/smh/hosts.toml`, or
-configure your system to give target users permission to run `smh` as root.
+configure your system to give target users permission to run `smh` as root. You
+can do this with:
+
+```
+sudo su
+chown root:smhers smh
+chmod =2750 smh
+```
+
+Then add any users who should be able to use `smh` to the `smhers` group with:
+
+```
+usermod -a -G smhers <username>
+```
